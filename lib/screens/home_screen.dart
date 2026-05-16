@@ -80,7 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
         final step = demo.step;
         if (_navIndex != 0) {
           return Scaffold(
-            backgroundColor: const Color(0xFFF5EDD9),
+            backgroundColor: const Color(0xFFFEF0DF),
             body: const Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -104,7 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
         }
 
         return Scaffold(
-          backgroundColor: const Color(0xFFF5EDD9),
+          backgroundColor: const Color(0xFFFEF0DF),
           body: SafeArea(
             child: Stack(
               children: [
@@ -119,20 +119,43 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 12),
-                            Text(
-                              step == 1 ? '25일 가까워졌어요' : step == 2 ? '10일 멀어졌어요' : '',
-                              style: TextStyle(
-                                fontSize: 12,
-                                color: step == 1 ? const Color(0xFFF4B860) : const Color(0xFFE57373),
-                                fontWeight: FontWeight.w600,
+                            // 목표명 + 추이 텍스트
+                            if (step == 0)
+                              Text(
+                                "'$_goalName'까지",
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Color(0xFF8D8D9E),
+                                ),
                               ),
-                            ),
+                            if (step == 1)
+                              Text(
+                                "'$_goalName'이 25일 가까워졌어요",
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Color(0xFF5C9E6B),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
+                            if (step == 2)
+                              Text(
+                                "'$_goalName'이 10일 멀어졌어요",
+                                style: const TextStyle(
+                                  fontSize: 13,
+                                  color: Color(0xFFE53935),
+                                  fontWeight: FontWeight.w600,
+                                ),
+                              ),
                             Text(
                               step == 1 ? 'D-116' : step == 2 ? 'D-53' : 'D-$_dDay',
-                              style: const TextStyle(
-                                fontSize: 48,
+                              style: TextStyle(
+                                fontSize: 52,
                                 fontWeight: FontWeight.bold,
-                                color: Color(0xFF3E2723),
+                                color: step == 1
+                                    ? const Color(0xFF5C9E6B)
+                                    : step == 2
+                                        ? const Color(0xFFE53935)
+                                        : const Color(0xFF2C2C3E),
                               ),
                             ),
                             const SizedBox(height: 4),
@@ -374,23 +397,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget _buildBottomNav() {
     return BottomNavigationBar(
-      backgroundColor: const Color(0xFFD9C9A3),
-      selectedItemColor: const Color(0xFF3E2723),
-      unselectedItemColor: const Color(0xFF8D6E63),
+      backgroundColor: const Color(0xFFFEF0DF),
+      selectedItemColor: const Color(0xFFB18160),
+      unselectedItemColor: const Color(0xFFB0AEAE),
       currentIndex: _navIndex,
       type: BottomNavigationBarType.fixed,
-      onTap: (index) {
-        setState(() => _navIndex = index);
-      },
+      selectedLabelStyle: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600),
+      unselectedLabelStyle: const TextStyle(fontSize: 11),
+      elevation: 0,
+      onTap: (index) => setState(() => _navIndex = index),
       items: const [
-        BottomNavigationBarItem(
-            icon: Icon(Icons.home_rounded), label: '홈'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.search_rounded), label: '검색'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart_rounded), label: '분석'),
-        BottomNavigationBarItem(
-            icon: Icon(Icons.person_rounded), label: '프로필'),
+        BottomNavigationBarItem(icon: Icon(Icons.home_rounded), label: '홈'),
+        BottomNavigationBarItem(icon: Icon(Icons.track_changes_rounded), label: '목표'),
+        BottomNavigationBarItem(icon: Icon(Icons.bar_chart_rounded), label: '통계'),
+        BottomNavigationBarItem(icon: Icon(Icons.person_rounded), label: '프로필'),
       ],
     );
   }

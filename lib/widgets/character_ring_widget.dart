@@ -21,21 +21,21 @@ class CharacterRingWidget extends StatelessWidget {
         ringColor: const Color(0xFFA8D5A2),
         imagePath: 'assets/characters/character_happy.png',
         imageSize: 170,
-        speechText: '$goalName~ 드가자~',
+        speechText: '$goalName 가서 엄마 선물 좀 사와~',
       ),
       _StepConfig(
         percent: 0.194,
-        ringColor: const Color(0xFFF4B860),
+        ringColor: const Color(0xFF5C9E6B),
         imagePath: 'assets/characters/character_normal.png',
         imageSize: 170,
-        speechText: '$goalName이 보이기 시작~',
+        speechText: '아들, 화이팅!',
       ),
       _StepConfig(
         percent: 0.70,
-        ringColor: const Color(0xFFE57373),
+        ringColor: const Color(0xFFE53935),
         imagePath: 'assets/characters/character_sad.png',
         imageSize: 170,
-        speechText: '잘하자..?',
+        speechText: '엄마가 아껴쓰라 했지!',
       ),
     ];
 

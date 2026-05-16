@@ -65,3 +65,12 @@ flutter:
     - assets/characters/character_happy.png
     - assets/characters/character_normal.png
     - assets/characters/character_sad.png
+    - assets/characters/character_title.png
+    - assets/characters/character_body.png
+    - assets/characters/character_cheer.png
+    - assets/characters/character_oo.png
+    - assets/characters/character_1.png
+    - assets/characters/character_2.png
+    - assets/characters/character_3.png
+    - assets/characters/character_4.png
+    - assets/characters/character_5.png
