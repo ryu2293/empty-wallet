@@ -93,7 +93,7 @@ class _CoachingToneScreenState extends State<CoachingToneScreen>
               ),
               SizedBox(height: 8),
               Text(
-                "'톤다'는 AI 소비 코치에요.\n톤다의 성격을 입력하면 그대로 코치 해줄 거에요.",
+                "'돈다'는 AI 소비 코치에요.\n돈다의 성격을 입력하면 그대로 코치 해줄 거에요.",
                 style: TextStyle(
                   fontSize: 13,
                   color: Color(0xFF8D8D9E),
