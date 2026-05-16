@@ -1,19 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'models/demo_data.dart';
 import 'screens/onboarding_screen.dart';
 import 'screens/home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final prefs = await SharedPreferences.getInstance();
-  final hasGoal = prefs.getString('goal_name') != null;
-
   runApp(
     ChangeNotifierProvider(
       create: (_) => DemoState(),
-      child: MyApp(initialRoute: hasGoal ? '/home' : '/onboarding'),
+      child: MyApp(initialRoute: '/onboarding'),
     ),
   );
 }

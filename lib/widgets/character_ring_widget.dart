@@ -27,14 +27,14 @@ class CharacterRingWidget extends StatelessWidget {
         percent: 0.194,
         ringColor: const Color(0xFFF4B860),
         imagePath: 'assets/characters/character_normal.png',
-        imageSize: 190,
-        speechText: '$goalName가 보이기 시작~',
+        imageSize: 170,
+        speechText: '$goalName이 보이기 시작~',
       ),
       _StepConfig(
         percent: 0.70,
         ringColor: const Color(0xFFE57373),
         imagePath: 'assets/characters/character_sad.png',
-        imageSize: 160,
+        imageSize: 170,
         speechText: '잘하자..?',
       ),
     ];
@@ -76,8 +76,11 @@ class CharacterRingWidget extends StatelessWidget {
           // 말풍선
           Positioned(
             top: 22,
-            right: 8,
-            child: SpeechBubbleWidget(text: cfg.speechText),
+            left: 0,
+            right: 0,
+            child: Center(
+              child: SpeechBubbleWidget(text: cfg.speechText),
+            ),
           ),
         ],
       ),

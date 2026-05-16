@@ -7,9 +7,7 @@ class SpeechBubbleWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: _BubblePainter(),
-      child: Container(
+    return Container(
         margin: const EdgeInsets.only(bottom: 10),
         padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
         decoration: BoxDecoration(
@@ -29,28 +27,6 @@ class SpeechBubbleWidget extends StatelessWidget {
             color: Color(0xFF3E2723),
           ),
         ),
-      ),
-    );
+      );
   }
-}
-
-class _BubblePainter extends CustomPainter {
-  @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = Colors.white
-      ..style = PaintingStyle.fill;
-
-    final path = Path();
-    final cx = size.width / 2;
-    final bottom = size.height;
-    path.moveTo(cx - 6, bottom);
-    path.lineTo(cx, bottom + 8);
-    path.lineTo(cx + 6, bottom);
-    path.close();
-    canvas.drawPath(path, paint);
-  }
-
-  @override
-  bool shouldRepaint(_BubblePainter oldDelegate) => false;
 }

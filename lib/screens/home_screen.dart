@@ -78,6 +78,31 @@ class _HomeScreenState extends State<HomeScreen> {
     return Consumer<DemoState>(
       builder: (context, demo, _) {
         final step = demo.step;
+        if (_navIndex != 0) {
+          return Scaffold(
+            backgroundColor: const Color(0xFFF5EDD9),
+            body: const Center(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.construction_rounded,
+                      size: 64, color: Color(0xFF8D6E63)),
+                  SizedBox(height: 16),
+                  Text(
+                    '추후 개발 예정',
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                      color: Color(0xFF3E2723),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            bottomNavigationBar: _buildBottomNav(),
+          );
+        }
+
         return Scaffold(
           backgroundColor: const Color(0xFFF5EDD9),
           body: SafeArea(
@@ -86,16 +111,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 Column(
                   children: [
                     _buildAppBar(),
-                    if (step == 1)
-                      _buildBanner(
-                        color: const Color(0xFFF4B860),
-                        text: '25일 가까워졌어요',
-                      ),
-                    if (step == 2)
-                      _buildBanner(
-                        color: const Color(0xFFE57373),
-                        text: '10일 밖에 없어요',
-                      ),
                     Expanded(
                       child: SingleChildScrollView(
                         controller: _scrollController,
@@ -104,9 +119,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             const SizedBox(height: 12),
-                            // D-day 표시 (링 상단 좌측, 크게)
                             Text(
-                              'D-$_dDay',
+                              step == 1 ? '25일 가까워졌어요' : step == 2 ? '10일 멀어졌어요' : '',
+                              style: TextStyle(
+                                fontSize: 12,
+                                color: step == 1 ? const Color(0xFFF4B860) : const Color(0xFFE57373),
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                            Text(
+                              step == 1 ? 'D-116' : step == 2 ? 'D-53' : 'D-$_dDay',
                               style: const TextStyle(
                                 fontSize: 48,
                                 fontWeight: FontWeight.bold,
@@ -141,15 +163,9 @@ class _HomeScreenState extends State<HomeScreen> {
                   right: 0,
                   top: 0,
                   child: GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: () => demo.nextStep(),
-                    child: Opacity(
-                      opacity: 0.0,
-                      child: Container(
-                        width: 80,
-                        height: 80,
-                        color: Colors.red,
-                      ),
-                    ),
+                    child: const SizedBox(width: 80, height: 80),
                   ),
                 ),
               ],
@@ -203,18 +219,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  Widget _buildBanner({required Color color, required String text}) {
-    return Container(
-      width: double.infinity,
-      color: color,
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Text(
-        text,
-        style: const TextStyle(fontSize: 13, color: Colors.white),
-        textAlign: TextAlign.center,
-      ),
-    );
-  }
 
   Widget _buildAmountRow(int step) {
     final spendAmounts = ['42,500', '155,000', '560,000'];
@@ -261,20 +265,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             const Spacer(),
             if (step == 1)
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 8, vertical: 3),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF4B860),
-                  borderRadius: BorderRadius.circular(8),
-                ),
-                child: const Text(
-                  '수정됐요',
-                  style: TextStyle(
-                    fontSize: 11,
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                  ),
+              const Text(
+                '수정됐어요',
+                style: TextStyle(
+                  fontSize: 11,
+                  color: Colors.red,
+                  fontWeight: FontWeight.bold,
                 ),
               ),
           ],
@@ -384,7 +380,7 @@ class _HomeScreenState extends State<HomeScreen> {
       currentIndex: _navIndex,
       type: BottomNavigationBarType.fixed,
       onTap: (index) {
-        if (index == 0) setState(() => _navIndex = 0);
+        setState(() => _navIndex = index);
       },
       items: const [
         BottomNavigationBarItem(
