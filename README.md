@@ -1,17 +1,42 @@
-# empty_wallet
+# 🐿️ 탕진잼
 
-A new Flutter project.
+> AI로 "탕진잼"를 없앤다면?
+> 소비 습관을 쉽고 재밌게 교정해주는 AI 페르소나 앱
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 소개
 
-A few resources to get you started if this is your first Flutter project:
+**탕진잼**는 20대 대학생의 현재편향적 소비 문제를 해결하기 위한 소비 습관 교정 앱입니다.
+다람쥐 AI 페르소나 캐릭터가 소비 상태에 따라 반응하며, 퀘스트를 통해 목표 달성을 도와줍니다.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 핵심 기능
+
+- 🎯 **목표 설정**: 목표 이름, 금액, 날짜를 설정하면 AI가 맞춤 로드맵 생성
+- 🐿️ **AI 페르소나**: 소비 상태에 따라 캐릭터 표정과 말풍선이 변화
+- 📊 **진행률 시각화**: 원형 그래프로 목표 대비 소비 현황을 직관적으로 표시
+- 📋 **퀘스트 시스템**: 소비 패턴 분석 후 주간 퀘스트 자동 조정
+- 🔔 **소비 알림**: 쇼핑 앱 접속 감지 시 AI 페르소나가 즉시 개입
+
+---
+
+## 기술 스택
+
+- **Frontend**: Flutter Web
+- **Storage**: SharedPreferences (로컬 저장소)
+- **배포**: Vercel
+
+---
+
+## 배포 URL
+
+🌐 [https://empty-wallet-cyan.vercel.app](https://empty-wallet-cyan.vercel.app)
+
+---
+
+## 멋쟁이사자처럼 아이디어톤
+
+> 전국 80개 대학, 500여개 팀이 참가하는 아이디어톤
+> 주제: **"AI로 \_\_\_을/를 없앤다면?"**
