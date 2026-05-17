@@ -1,6 +1,6 @@
 {
-    "name": "empty_wallet",
-    "short_name": "empty_wallet",
+    "name": "돈다",
+    "short_name": "돈다",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

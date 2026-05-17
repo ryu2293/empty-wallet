@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: '텅빈지갑',
+      title: '돈다',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: 'sans-serif',

@@ -1,6 +1,6 @@
-# empty_wallet
+# 돈다
 
-A new Flutter project.
+돈다
 
 ## Getting Started
 
